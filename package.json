@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-shop-cms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  },
+  "dependencies": {
+    "ejs-mate": "^3.0.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.13"
+  }
+}
