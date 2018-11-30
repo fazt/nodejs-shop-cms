@@ -1,0 +1,32 @@
+<% layout('_layouts/admin_layout') %>
+
+<a href="/dashboard/categories/add" class="btn btn-primary">
+  Add A New Categories 
+</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% categories.forEach(function(cat) { %>
+    <tr>
+      <td><%= cat.title %></td>
+      <td>
+        <a href="/dashboard/categories/edit/<%= cat.id %>">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a href="/dashboard/categories/delete/<%= cat._id %>" class="confirm-delete">
+          Delete
+        </a>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

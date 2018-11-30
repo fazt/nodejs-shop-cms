@@ -2,39 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Frontend</title>
+    <title>Dashboard</title>
     <!-- BOOTSTRAP 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Admin</a>
+      <a class="navbar-brand" href="/">Dashboard NodeCMS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link" href="/dashboard/pages">Pages</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container p-4">
+      <%- messages('partials/messages', locals) %>
+
+      <% if (errors) { %>
+        <% errors.forEach(function(error) { %>
+          <div class="alert alert-danger">
+            <%= error.msg %>
+          </div>
+        <% }) %>
+      <% } %>
+
       <%- body %>
     </div>
 
+    <!-- SCRIPTS -->
+      <!-- JQUERY FROM THE OFFICIAL DOCS -->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP DEPENDENCIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- CKEDITOR 5-->
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="/js/main.js"></script>
+
+    <!-- ADD MORE SCRITPS -->
+    <%- block('scripts').toString() %>
 
   </body>
 </html>

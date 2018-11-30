@@ -1,0 +1,19 @@
+<% layout('_layouts/admin_layout') %>
+
+<h3>Add A Categoru</h3>
+
+<a href="/dashboard/categories" class="btn btn-primary">
+  Categories Index
+</a>
+
+
+<form action="/dashboard/categories/add" method="POST">
+  <div class="form-group">
+    <input type="text" name="title" class="form-control" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">
+      Save Page
+    </button>
+  </div>
+</form>

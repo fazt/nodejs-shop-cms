@@ -1,0 +1,40 @@
+<% layout('_layouts/admin_layout') %>
+
+<a href="/dashboard/pages/add" class="btn btn-primary">
+  Add A New Page
+</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% pages.forEach(function(page) { %>
+    <tr id="id_<%= page._id %>" class="<%= page.url %>">
+        <td><%= page.title %></td>
+        <td>
+          <a href="/dashboard/pages/edit/<%= page.url %>">
+            Edit
+          </a>
+        </td>
+        <% if (page.url != "home") { %>
+          <td>
+            <a href="/dashboard/pages/delete/<%= page._id %>" class="confirm-delete">
+              Delete
+            </a>
+          </td>
+        <% } %>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<% /* JQUERY UI CDN APPENDING TO THE EXISTING SCRIPTS */ %>
+<% block('scripts').append('<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>') %>
+
+<% /* JQUERY UI CUSTOM CODE */ %>
+<% block('scripts').append('<script src="/js/page-sort.js"></script>') %>
